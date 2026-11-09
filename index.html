@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Executive Image Cleaners — Website Wireframe</title>
+<style>
+  :root {
+    --ink: #171717;
+    --gold: #b99a58;
+    --cream: #f7f5f0;
+    --white: #ffffff;
+    --muted: #6b6b67;
+    --line: #e4e0d7;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; color: var(--ink); background: var(--white); font-family: Arial, Helvetica, sans-serif; }
+  a { color: inherit; text-decoration: none; }
+  .topbar { background: var(--ink); color: white; padding: 9px 5vw; text-align: right; font-size: 12px; letter-spacing: .08em; }
+  header { display: flex; justify-content: space-between; align-items: center; padding: 22px 5vw; border-bottom: 1px solid var(--line); gap: 24px; }
+  .brand { font-family: Georgia, 'Times New Roman', serif; font-size: 22px; letter-spacing: .04em; line-height: 1.05; }
+  .brand span { display: block; color: var(--gold); font-size: 12px; letter-spacing: .24em; margin-top: 7px; text-transform: uppercase; }
+  nav { display: flex; align-items: center; gap: 26px; font-size: 12px; text-transform: uppercase; letter-spacing: .1em; }
+  .button { display: inline-block; background: var(--ink); color: white; padding: 14px 20px; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; border: 1px solid var(--ink); }
+  .button.gold { background: var(--gold); border-color: var(--gold); color: #fff; }
+  .hero { display: grid; grid-template-columns: 1fr 1.05fr; min-height: 520px; background: var(--cream); }
+  .hero-copy { padding: 80px 8vw 72px 10vw; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+  .eyebrow { color: var(--gold); font-size: 11px; font-weight: bold; letter-spacing: .2em; text-transform: uppercase; margin-bottom: 20px; }
+  h1, h2, h3 { font-family: Georgia, 'Times New Roman', serif; font-weight: normal; }
+  h1 { font-size: clamp(42px, 5vw, 68px); line-height: 1.02; margin: 0 0 22px; }
+  .hero-copy p { color: var(--muted); line-height: 1.8; max-width: 420px; margin: 0 0 28px; font-size: 15px; }
+  .image-placeholder { background: #e8e5de; border: 1px solid #d4cfc3; color: #8b877d; min-height: 220px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 18px; font-size: 11px; letter-spacing: .16em; text-transform: uppercase; position: relative; }
+  .image-placeholder:before { content: ""; position: absolute; inset: 12px; border: 1px dashed #b9b2a5; pointer-events: none; }
+  .hero-image { min-height: 520px; }
+  img.hero-image { width: 100%; height: 520px; display: block; object-fit: cover; object-position: center; }
+  .ticker { padding: 17px 4vw; background: var(--ink); color: white; display: flex; justify-content: center; flex-wrap: wrap; gap: 26px; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; }
+  .ticker span::before { content: "✦"; color: var(--gold); margin-right: 10px; }
+  section { padding: 78px 7vw; }
+  .section-heading { max-width: 680px; margin: 0 auto 38px; text-align: center; }
+  .section-heading h2 { font-size: clamp(32px, 4vw, 46px); margin: 0 0 14px; }
+  .section-heading p { color: var(--muted); line-height: 1.7; margin: 0; }
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+  .service-card { border: 1px solid var(--line); background: white; }
+  .service-card .image-placeholder, .service-card img.service-image { width: 100%; height: 260px; min-height: 260px; display: block; object-fit: cover; }
+  .service-copy { padding: 23px 22px 27px; }
+  .service-copy h3 { font-size: 26px; margin: 0 0 8px; }
+  .service-copy p { color: var(--muted); font-size: 13px; line-height: 1.7; margin: 0 0 18px; }
+  .text-link { font-size: 10px; letter-spacing: .15em; text-transform: uppercase; border-bottom: 1px solid var(--gold); padding-bottom: 5px; }
+  .about-band { background: var(--cream); display: grid; grid-template-columns: 1fr 1fr; gap: 6vw; align-items: center; }
+  .about-band .image-placeholder, .about-band img.about-image { width: 100%; height: 390px; min-height: 390px; display: block; object-fit: cover; }
+  .about-copy h2 { font-size: clamp(32px, 4vw, 48px); line-height: 1.1; margin: 0 0 20px; }
+  .about-copy p { color: var(--muted); line-height: 1.85; font-size: 14px; margin-bottom: 26px; }
+  .reviews { background: var(--ink); color: white; }
+  .reviews .section-heading p { color: #c6c3bc; }
+  .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .review { padding: 28px; border: 1px solid #45433e; }
+  .stars { color: var(--gold); letter-spacing: .18em; margin-bottom: 16px; }
+  .review blockquote { margin: 0 0 20px; font-family: Georgia, 'Times New Roman', serif; font-size: 20px; line-height: 1.5; }
+  .review cite { font-style: normal; color: #c6c3bc; font-size: 11px; letter-spacing: .12em; text-transform: uppercase; }
+  .process { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+  .step { border-top: 1px solid var(--gold); padding-top: 20px; }
+  .step-number { color: var(--gold); font-family: Georgia, serif; font-size: 35px; }
+  .step h3 { font-size: 25px; margin: 12px 0 8px; }
+  .step p { color: var(--muted); line-height: 1.75; font-size: 13px; }
+  .contact { background: var(--cream); text-align: center; }
+  .contact h2 { font-size: clamp(34px, 4vw, 50px); margin: 0 0 15px; }
+  .contact p { color: var(--muted); margin: 0 auto 26px; line-height: 1.7; max-width: 560px; }
+  footer { background: #111; color: white; padding: 38px 7vw; display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+  footer small { color: #c6c3bc; line-height: 1.8; }
+  @media (max-width: 800px) {
+    header { align-items: flex-start; flex-direction: column; }
+    nav { gap: 14px; flex-wrap: wrap; }
+    .hero, .about-band { grid-template-columns: 1fr; }
+    .hero-copy { padding: 58px 7vw; }
+    .hero-image { min-height: 300px; }
+    img.hero-image { height: 300px; }
+    .services, .review-grid, .process { grid-template-columns: 1fr; }
+    section { padding: 58px 6vw; }
+    .about-band .image-placeholder { min-height: 280px; }
+    img.about-image { height: 280px; }
+  }
+</style>
+</head>
+<body>
+  <div class="topbar">Call the shop: <strong>(213) 488-1045</strong></div>
+  <header>
+    <a class="brand" href="#">EXECUTIVE IMAGE<span>Cleaners</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#about">Our Story</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Find Us</a>
+      <a class="button" href="#contact">Contact Us</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" style="padding:0">
+      <div class="hero-copy">
+        <div class="eyebrow">Professional Garment Care</div>
+        <h1>Look Sharp.<br>Feel Confident.</h1>
+        <p>Thoughtful garment care for the pieces you love. From everyday essentials to your finest attire, trust us to help you make the right impression.</p>
+        <a class="button gold" href="#contact">Visit Our Shop</a>
+      </div>
+      <img class="hero-image" src="img/Hero4.jpeg" alt="Tailored suits and garments on display">
+    </section>
+
+    <div class="ticker">
+      <span>Expert Care</span><span>Attention to Detail</span><span>Personal Service</span><span>Quality You Can Trust</span>
+    </div>
+
+    <section id="services">
+      <div class="section-heading">
+        <div class="eyebrow">What We Do</div>
+        <h2>Care for Every Occasion</h2>
+        <p>Showcase your main services here. Each card has a blank image frame ready for your own photography.</p>
+      </div>
+      <div class="services">
+        <article class="service-card">
+          <img class="service-image" src="img/DryCleaning_Service.jpeg" alt="Professional dry cleaning service">
+          <div class="service-copy"><h3>Dry Cleaning</h3><p>Professional cleaning designed to help your garments look their best.</p><a class="text-link" href="#contact">Explore Service</a></div>
+        </article>
+        <article class="service-card">
+          <img class="service-image" src="img/Hero1.jpeg" alt="Expert alterations and garment care">
+          <div class="service-copy"><h3>Alterations</h3><p>Finishing touches and fit adjustments for a more polished look.</p><a class="text-link" href="#contact">Explore Service</a></div>
+        </article>
+        <article class="service-card">
+          <img class="service-image" src="img/Alteration_Wedding_Bgrd.jpeg" alt="Wedding garment alterations">
+          <div class="service-copy"><h3>Specialty Garments</h3><p>Careful attention for formalwear, delicate fabrics, and treasured pieces.</p><a class="text-link" href="#contact">Explore Service</a></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="about-band" id="about">
+      <img class="about-image" src="img/Service1.jpeg" alt="Executive Image Cleaners professional garment care">
+      <div class="about-copy">
+        <div class="eyebrow">The Executive Image Difference</div>
+        <h2>Careful Work.<br>Personal Attention.</h2>
+        <p>Serving downtown Los Angeles from The Skyline, Executive Image Cleaners combines quality garment care with a warm, personal touch. Customers trust our team with everyday wear, tailored suits, delicate fabrics, and high-end designer pieces.</p>
+        <a class="button" href="#contact">Get in Touch</a>
+      </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+      <div class="section-heading">
+        <div class="eyebrow">Client Experiences</div>
+        <h2>Trusted by Our Customers</h2>
+        <p>Rated 4.4 stars from 191 Google reviews.</p>
+      </div>
+      <div class="review-grid">
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“Good people, good service, and the price is as right as it gets in this town!”</blockquote><cite>Jonathan Underland</cite></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“Executive Image Cleaners is a true gem in downtown LA a classic, friendly Mom and Pop shop that delivers incredible service!”</blockquote><cite>Theo</cite></article>
+        <article class="review"><div class="stars">★★★★★</div><blockquote>“Friendliest staff, they make you feel like family.”</blockquote><cite>faithannmarie</cite></article>
+      </div>
+    </section>
+
+    <section>
+      <div class="section-heading">
+        <div class="eyebrow">Simple & Convenient</div>
+        <h2>Three Easy Steps</h2>
+        <p>A quick overview of what customers can expect when they visit.</p>
+      </div>
+      <div class="process">
+        <article class="step"><div class="step-number">01</div><h3>Bring It In</h3><p>Visit the shop and tell us what your garment needs.</p></article>
+        <article class="step"><div class="step-number">02</div><h3>We Take Care</h3><p>Our team reviews the work and explains the next steps.</p></article>
+        <article class="step"><div class="step-number">03</div><h3>Pick It Up</h3><p>Collect your garments and get ready to look your best.</p></article>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="eyebrow">Visit Executive Image Cleaners</div>
+      <h2>Ready for a Better Fit?</h2>
+      <p>Located on Floor 1 at The Skyline. Call ahead to confirm same-day availability, pickup timing, and specialty garment care.</p>
+      <a class="button gold" href="tel:+12134881045">Call the Shop</a>
+      <p style="font-size:15px;margin-top:22px">600 W 9th St, Apt 100, Los Angeles, CA 90015<br>Mon–Fri: 9 AM–6 PM · Sat: 10 AM–5 PM · Sun: Closed</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="brand">EXECUTIVE IMAGE<span>Cleaners</span></div>
+    <small>• Woman Owned • Professional Garment Care<br>• (213) 488-1045 • 600 W 9th St Apt 100, Los Angeles, CA 90015</small>
+    <small>© 2026 Executive Image Cleaners</small>
+  </footer>
+</body>
+</html>
